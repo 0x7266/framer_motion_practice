@@ -1,13 +1,8 @@
 import { Outlet } from "react-router-dom";
+import Index from "./components/Index";
 
 function App() {
-	return (
-		<div className="bg-slate-950 flex flex-col items-center p-10">
-			<div className="container flex flex-col items-center gap-5">
-				<Outlet />
-			</div>
-		</div>
-	);
+	return <Index />;
 }
 
 export default App;

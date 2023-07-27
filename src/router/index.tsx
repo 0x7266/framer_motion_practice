@@ -6,11 +6,9 @@ export const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
-		children: [
-			{
-				path: "/posts",
-				element: <Posts />,
-			},
-		],
+	},
+	{
+		path: "/posts",
+		element: <Posts />,
 	},
 ]);

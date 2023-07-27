@@ -6,6 +6,10 @@ import { router } from "./router/index.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<div className="min-h-screen bg-zinc-900 flex flex-col items-center p-10">
+			<div className="container flex flex-col items-center gap-5">
+				<RouterProvider router={router} />
+			</div>
+		</div>
 	</React.StrictMode>
 );
