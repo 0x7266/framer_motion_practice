@@ -15,8 +15,51 @@ export function Post({
 	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.95, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0.1, 1]);
 
+	const textVariantsLocal = {
+		initial: {
+			y: "500px",
+			opacity: 0,
+		},
+		inView: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				type: "spring",
+				bounce: 0.3,
+				duration: 0.7,
+				when: "afterParent",
+			},
+		},
+		// initial_2: {
+		// 	x: "-500px",
+		// 	opacity: 0,
+		// },
+		// inView_2: {
+		// 	x: 0,
+		// 	opacity: 1,
+		// 	transition: {
+		// 		type: "spring",
+		// 		bounce: 0.3,
+		// 		duration: 0.7,
+		// 	},
+		// },
+		// initial_3: {
+		// 	x: "-500px",
+		// 	opacity: 0,
+		// },
+		// inView_3: {
+		// 	x: 0,
+		// 	opacity: 1,
+		// 	transition: {
+		// 		type: "spring",
+		// 		bounce: 0.3,
+		// 		duration: 0.7,
+		// 	},
+		// },
+	};
+
 	return (
-		<motion.div className="flex flex-col items-center">
+		<motion.div className="w-full flex flex-col items-center">
 			<motion.div
 				style={{
 					scale: scaleProgress,
@@ -35,21 +78,25 @@ export function Post({
 				>
 					{post.title}
 				</motion.div>
-				<motion.div variants={textVariants} className="text-white">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-					alias saepe rerum quasi! Iure, quos. Velit excepturi corrupti cum
-					autem maxime, officiis repellendus repellat sunt ducimus, dolores hic
-					animi voluptate! Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Praesentium libero natus id distinctio enim officia quis tenetur
-					quibusdam, laudantium excepturi repellendus. Culpa explicabo fugiat
-					similique maiores facilis vero magnam nemo. Repudiandae ipsa
-					recusandae, consequuntur fugiat mollitia in? Nobis culpa laudantium,
-					vel soluta molestiae veritatis quis cupiditate inventore reprehenderit
-					ut explicabo tempore nulla aliquid commodi autem asperiores, natus,
-					numquam adipisci! Doloremque! Pariatur id earum eaque temporibus
-					veniam omnis nobis autem veritatis velit. Qui quas impedit natus,
-					facere consequuntur reprehenderit ut porro dignissimos vel, eius cum
-					ratione earum quisquam dolores. Obcaecati, enim!
+				<motion.div
+					// variants={textVariants}
+					initial="initial"
+					whileInView="inView"
+					transition={{ staggerChildren: 0.2 }}
+					className="w-full flex flex-col gap-3"
+				>
+					<motion.div
+						variants={textVariantsLocal}
+						className="w-full h-4 rounded-full bg-gray-500"
+					/>
+					<motion.div
+						variants={textVariantsLocal}
+						className="w-full h-4 rounded-full bg-gray-500"
+					/>
+					<motion.div
+						variants={textVariantsLocal}
+						className="w-full h-4 rounded-full bg-gray-500"
+					/>
 				</motion.div>
 				<motion.div
 					variants={imageVariants}
