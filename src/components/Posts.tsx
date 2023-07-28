@@ -6,27 +6,27 @@ const data = [
 	{
 		title: "Title 1",
 		text: "Text 1",
-		img: "https://unsplash.com/photos/M5tzZtFCOfs/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjkwNDk3NTk4fA&force=true&w=640",
+		img: "bg-orange-300",
 	},
 	{
 		title: "Title 2",
 		text: "Text 2",
-		img: "https://unsplash.com/photos/40XgDxBfYXM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjkwNDk3ODI5fA&force=true&w=640",
+		img: "bg-rose-300",
 	},
 	{
 		title: "Title 3",
 		text: "Text 3",
-		img: "https://unsplash.com/photos/oZPwn40zCK4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjkwNDk3ODQyfA&force=true&w=640",
+		img: "bg-blue-300",
 	},
 	{
 		title: "Title 4",
 		text: "Text 4",
-		img: "https://unsplash.com/photos/PSpf_XgOM5w/download?force=true&w=640",
+		img: "bg-green-300",
 	},
 	{
 		title: "Title 5",
 		text: "Text 5",
-		img: "https://unsplash.com/photos/ISG-rUel0Uw/download?force=true&w=640",
+		img: "bg-violet-300",
 	},
 ];
 
@@ -91,7 +91,7 @@ function Post({
 				reprehenderit ut porro dignissimos vel, eius cum ratione earum quisquam
 				dolores. Obcaecati, enim!
 			</div>
-			<img src={post.img} alt={post.text} className="" />
+			<div className={`w-full h-96 ${post.img}`} />
 		</motion.div>
 	);
 }
