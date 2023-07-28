@@ -11,23 +11,23 @@ function getRandomHexColor(): string {
 export default function Index() {
 	const links = [
 		{
-			name: "posts --- scroll animations",
+			name: "scroll animations",
 			path: "/posts",
 			color: getRandomHexColor(),
 		},
-		{ name: "blablablablabla1", path: "/", color: getRandomHexColor() },
-		{ name: "blablablablabla2", path: "/", color: getRandomHexColor() },
-		{ name: "blablablablabla3", path: "/", color: getRandomHexColor() },
-		{ name: "blablablablabla4", path: "/", color: getRandomHexColor() },
-		{ name: "blablablablabla5", path: "/", color: getRandomHexColor() },
-		{ name: "blablablablabla6", path: "/", color: getRandomHexColor() },
+		{ name: "link 2", path: "/", color: getRandomHexColor() },
+		{ name: "link 3", path: "/", color: getRandomHexColor() },
+		{ name: "link 4", path: "/", color: getRandomHexColor() },
+		{ name: "link 5", path: "/", color: getRandomHexColor() },
+		{ name: "link 6", path: "/", color: getRandomHexColor() },
+		{ name: "link 7", path: "/", color: getRandomHexColor() },
 	];
 	return (
-		<nav className="w-screen flex flex-col text-zinc-100 text-7xl font-bold uppercase bg-zinc-900">
+		<nav className="w-screen flex flex-col text-zinc-100 text-9xl font-extrabold uppercase bg-zinc-900">
 			{links.map((link, index) => (
 				<motion.div
 					initial={{
-						y: (index + 1) * -18,
+						y: index * -25,
 						backgroundColor: "rgb(24 24 27)",
 						border: "2px solid white",
 						borderLeft: "none",
@@ -35,12 +35,10 @@ export default function Index() {
 					}}
 					whileHover={{
 						backgroundColor: link.color,
-						y: (index + 1) * -20,
+						translateY: -20,
 					}}
 				>
-					<Link to={link.path} className="p-2">
-						{link.name}
-					</Link>
+					<Link to={link.path}>{link.name}</Link>
 				</motion.div>
 			))}
 		</nav>
