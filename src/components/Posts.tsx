@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { imageVariants, textVariants, titleVariants } from "../variants/posts";
 
 const data = [
 	{
@@ -63,52 +64,6 @@ function Post({
 	});
 	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.95, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0.1, 1]);
-
-	const titleVariants = {
-		initial: {
-			y: "-500px",
-			opacity: 0,
-		},
-		inView: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				type: "spring",
-				bounce: 0.3,
-				duration: 0.7,
-			},
-		},
-	};
-	const textVariants = {
-		initial: {
-			x: "-500px",
-			opacity: 0,
-		},
-		inView: {
-			x: 0,
-			opacity: 1,
-			transition: {
-				type: "spring",
-				bounce: 0.3,
-				duration: 0.7,
-			},
-		},
-	};
-	const imageVariants = {
-		initial: {
-			x: "100vw",
-			opacity: 0,
-		},
-		inView: {
-			x: 0,
-			opacity: 1,
-			transition: {
-				type: "spring",
-				bounce: 0.2,
-				duration: 0.8,
-			},
-		},
-	};
 
 	return (
 		<motion.div className="flex flex-col items-center">
