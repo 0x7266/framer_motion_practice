@@ -30,19 +30,19 @@ export default function Index() {
 			className="w-screen flex flex-col text-zinc-200 text-7xl font-alfa uppercase"
 		>
 			{links.map((link, index) => (
-				<motion.div
-					whileHover={{
-						backgroundColor: link.color,
-						translateY: -20,
-					}}
-					variants={textVariants}
-					custom={{ index, color: link.color }}
-					key={index}
-				>
-					<div className="pt-2">
-						<Link to={link.path}>{link.name}</Link>
-					</div>
-				</motion.div>
+				<Link to={link.path}>
+					<motion.div
+						whileHover={{
+							backgroundColor: link.color,
+							translateY: -20,
+						}}
+						variants={textVariants}
+						custom={{ index, color: link.color }}
+						key={index}
+					>
+						<div className="pt-2">{link.name}</div>
+					</motion.div>
+				</Link>
 			))}
 		</motion.nav>
 	);
