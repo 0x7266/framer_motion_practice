@@ -33,7 +33,12 @@ export function Post({
 	};
 
 	return (
-		<div className="w-full flex flex-col items-center">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			className="w-full flex flex-col items-center"
+		>
 			<motion.div
 				style={{
 					scale: scaleProgress,
@@ -77,6 +82,6 @@ export function Post({
 					className={`w-full h-96 rounded-lg ${post.img}`}
 				/>
 			</motion.div>
-		</div>
+		</motion.div>
 	);
 }

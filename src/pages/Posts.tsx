@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Post } from "../components/Post";
 import HomeIcon from "../assets/HomeIcon";
 
@@ -33,9 +34,15 @@ const data = [
 export default function Posts() {
 	return (
 		<>
-			<Link to="/">
-				<HomeIcon />
-			</Link>
+			<motion.div
+				initial={{ y: -200 }}
+				animate={{ y: -10, transition: { duration: 0.6 } }}
+				exit={{ y: -200 }}
+			>
+				<Link to="/">
+					<HomeIcon />
+				</Link>
+			</motion.div>
 			{data.map((post, index) => (
 				<Post post={post} key={index} />
 			))}
