@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { imageVariants, titleVariants } from "../variants/posts";
+import { imageVariants, textVariants, titleVariants } from "../variants/posts";
 
 export function Post({ post }: { post: { title: string; img: string } }) {
 	const ref = useRef(null);
@@ -10,23 +10,6 @@ export function Post({ post }: { post: { title: string; img: string } }) {
 	});
 	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.85, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0.1, 1]);
-
-	const textVariantsLocal = {
-		initial: {
-			y: "500px",
-			opacity: 0,
-		},
-		inView: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				type: "spring",
-				bounce: 0.3,
-				duration: 0.7,
-				when: "afterParent",
-			},
-		},
-	};
 
 	return (
 		<motion.div
@@ -61,15 +44,15 @@ export function Post({ post }: { post: { title: string; img: string } }) {
 					className="w-full flex flex-col gap-3"
 				>
 					<motion.div
-						variants={textVariantsLocal}
+						variants={textVariants}
 						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 					<motion.div
-						variants={textVariantsLocal}
+						variants={textVariants}
 						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 					<motion.div
-						variants={textVariantsLocal}
+						variants={textVariants}
 						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 				</motion.div>

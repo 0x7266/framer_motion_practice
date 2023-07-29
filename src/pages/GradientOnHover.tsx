@@ -16,15 +16,30 @@ export default function GradientOnHover() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<motion.nav
-				initial="initial"
-				animate="animate"
-				exit="exit"
-				transition={{ staggerChildren: 0.1 }}
-				className="w-screen flex flex-col text-zinc-200 text-7xl font-alfa uppercase"
-			>
-				<Post post={{ title: "hover me", img: "" }}></Post>
-			</motion.nav>
+			<div className="container mx-auto">
+				<motion.div
+					// initial={{ opacity: 0 }}
+					// animate={{ opacity: 1 }}
+					// exit={{ x: 5000 }}
+					transition={{ staggerChildren: 0.1 }}
+					className="flex flex-col text-zinc-200 text-7xl font-alfa uppercase"
+				>
+					<div className="flex flex-col">
+						<h1>HOVER ME</h1>
+						<motion.div
+							initial="initial"
+							whileInView="inView"
+							transition={{ staggerChildren: 0.2 }}
+							viewport={{ amount: 0.5, once: true }}
+							className="w-full flex flex-col gap-3"
+						>
+							<motion.div className="w-full h-6 rounded-lg bg-gray-500" />
+							<motion.div className="w-full h-6 rounded-lg bg-gray-500" />
+							<motion.div className="w-full h-6 rounded-lg bg-gray-500" />
+						</motion.div>
+					</div>
+				</motion.div>
+			</div>
 		</>
 	);
 }

@@ -15,16 +15,17 @@ export const titleVariants = {
 };
 export const textVariants = {
 	initial: {
-		x: "-500px",
+		y: "500px",
 		opacity: 0,
 	},
 	inView: {
-		x: 0,
+		y: 0,
 		opacity: 1,
 		transition: {
 			type: "spring",
 			bounce: 0.3,
 			duration: 0.7,
+			when: "afterParent",
 		},
 	},
 };
