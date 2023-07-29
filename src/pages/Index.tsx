@@ -28,7 +28,7 @@ export default function Index() {
 			initial="initial"
 			animate="animate"
 			transition={{ staggerChildren: 0.3 }}
-			className="w-screen flex flex-col text-zinc-100 text-7xl font-alfa uppercase bg-zinc-900"
+			className="w-screen flex flex-col text-zinc-200 text-7xl font-alfa uppercase bg-zinc-900"
 		>
 			{links.map((link, index) => (
 				<motion.div
