@@ -53,28 +53,28 @@ export function Post({
 					{post.title}
 				</motion.div>
 				<motion.div
-					// variants={textVariants}
 					initial="initial"
 					whileInView="inView"
 					transition={{ staggerChildren: 0.2 }}
+					viewport={{ amount: 0.5, once: true }}
 					className="w-full flex flex-col gap-3"
 				>
 					<motion.div
 						variants={textVariantsLocal}
-						className="w-full h-4 rounded-full bg-gray-500"
+						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 					<motion.div
 						variants={textVariantsLocal}
-						className="w-full h-4 rounded-full bg-gray-500"
+						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 					<motion.div
 						variants={textVariantsLocal}
-						className="w-full h-4 rounded-full bg-gray-500"
+						className="w-full h-6 rounded-lg bg-gray-500"
 					/>
 				</motion.div>
 				<motion.div
 					variants={imageVariants}
-					className={`w-full h-96 ${post.img}`}
+					className={`w-full h-96 rounded-lg ${post.img}`}
 				/>
 			</motion.div>
 		</div>
