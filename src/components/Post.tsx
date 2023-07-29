@@ -9,7 +9,7 @@ export function Post({ post }: { post: { title: string; img: string } }) {
 		offset: ["0 1", "1 1"],
 	});
 	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.85, 1]);
-	const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0.1, 1]);
+	const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0.1, 1]);
 
 	const textVariantsLocal = {
 		initial: {
