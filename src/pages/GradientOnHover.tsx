@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { textVariants } from "../variants/index";
+import { textVariants } from "../variants/index/index";
 import { getRandomHexColor } from "../utils/getRandomHexColor";
 
-export default function Index() {
+export default function GradientOnHover() {
 	const links = [
 		{
-			name: "scroll animation",
-			path: "/scrollanimation",
+			name: "scroll animations",
+			path: "/posts",
 			color: getRandomHexColor(),
 		},
-		{
-			name: "gradient on hover",
-			path: "/gradientonhover",
-			color: getRandomHexColor(),
-		},
+		{ name: "link 2", path: "/", color: getRandomHexColor() },
 		{ name: "link 3", path: "/", color: getRandomHexColor() },
 		{ name: "link 4", path: "/", color: getRandomHexColor() },
 		{ name: "link 5", path: "/", color: getRandomHexColor() },
