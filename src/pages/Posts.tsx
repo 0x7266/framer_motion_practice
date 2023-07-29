@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Post } from "../components/Post";
 import HomeIcon from "../assets/HomeIcon";
-import Transition from "../utils/Transition";
 
 const data = [
 	{
@@ -33,15 +32,13 @@ const data = [
 
 export default function Posts() {
 	return (
-		<Transition>
-			<>
-				<Link to="/">
-					<HomeIcon />
-				</Link>
-				{data.map((post, index) => (
-					<Post post={post} key={index} />
-				))}
-			</>
-		</Transition>
+		<>
+			<Link to="/">
+				<HomeIcon />
+			</Link>
+			{data.map((post, index) => (
+				<Post post={post} key={index} />
+			))}
+		</>
 	);
 }

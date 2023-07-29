@@ -16,7 +16,14 @@ export const textVariants = {
 			type: "spring",
 			bounce: 0.2,
 			duration: 0.3,
-			when: "afterParent",
 		},
 	}),
+	exit: {
+		y: "-100vh",
+		transition: {
+			type: "spring",
+			bounce: 0.2,
+			duration: 0.3,
+		},
+	},
 };
