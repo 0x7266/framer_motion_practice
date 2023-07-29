@@ -30,36 +30,10 @@ export function Post({
 				when: "afterParent",
 			},
 		},
-		// initial_2: {
-		// 	x: "-500px",
-		// 	opacity: 0,
-		// },
-		// inView_2: {
-		// 	x: 0,
-		// 	opacity: 1,
-		// 	transition: {
-		// 		type: "spring",
-		// 		bounce: 0.3,
-		// 		duration: 0.7,
-		// 	},
-		// },
-		// initial_3: {
-		// 	x: "-500px",
-		// 	opacity: 0,
-		// },
-		// inView_3: {
-		// 	x: 0,
-		// 	opacity: 1,
-		// 	transition: {
-		// 		type: "spring",
-		// 		bounce: 0.3,
-		// 		duration: 0.7,
-		// 	},
-		// },
 	};
 
 	return (
-		<motion.div className="w-full flex flex-col items-center">
+		<div className="w-full flex flex-col items-center">
 			<motion.div
 				style={{
 					scale: scaleProgress,
@@ -103,6 +77,6 @@ export function Post({
 					className={`w-full h-96 ${post.img}`}
 				/>
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 }
