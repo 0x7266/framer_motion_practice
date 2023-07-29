@@ -23,7 +23,7 @@ export default function Index() {
 		{ name: "link 7", path: "/", color: getRandomHexColor() },
 	];
 	return (
-		<nav className="w-screen flex flex-col text-zinc-100 text-9xl font-extrabold uppercase bg-zinc-900">
+		<nav className="w-screen flex flex-col text-zinc-100 text-7xl font-alfa uppercase bg-zinc-900">
 			{links.map((link, index) => (
 				<motion.div
 					initial={{
@@ -38,7 +38,9 @@ export default function Index() {
 						translateY: -20,
 					}}
 				>
-					<Link to={link.path}>{link.name}</Link>
+					<div className="pt-2">
+						<Link to={link.path}>{link.name}</Link>
+					</div>
 				</motion.div>
 			))}
 		</nav>
