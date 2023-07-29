@@ -1,18 +1,14 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { imageVariants, textVariants, titleVariants } from "../variants/posts";
+import { imageVariants, titleVariants } from "../variants/posts";
 
-export function Post({
-	post,
-}: {
-	post: { title: string; text: string; img: string };
-}) {
+export function Post({ post }: { post: { title: string; img: string } }) {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		offset: ["0 1", "1 1"],
 	});
-	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.95, 1]);
+	const scaleProgress = useTransform(scrollYProgress, [0.2, 1], [0.85, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 0.2], [0.1, 1]);
 
 	const textVariantsLocal = {
