@@ -43,7 +43,7 @@ export default function Demo() {
 						<motion.div
 							className="absolute inset-0"
 							style={{
-								background: `radial-gradient(circle at ${mousePostion.x}px ${mousePostion.y}px, rgba(14, 165, 233, 1), transparent 80%)`,
+								background: `radial-gradient(450px circle at ${mousePostion.x}px ${mousePostion.y}px, rgba(14, 165, 233, .15), transparent 80%)`,
 							}}
 						/>
 						<motion.div className="invisible flex flex-col gap-10">
