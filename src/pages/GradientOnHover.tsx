@@ -26,7 +26,7 @@ export default function Demo() {
 			</motion.div>
 			<div className="h-full flex flex-col items-center justify-center">
 				<div
-					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group rounded-3xl border border-gray-700 bg-gray-900"
+					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group rounded-3xl border border-gray-700 bg-gray-900 overflow-hidden"
 					onMouseMove={handleMouseMove}
 				>
 					<motion.div
@@ -108,7 +108,13 @@ export default function Demo() {
 									className="w-full h-6 rounded-lg bg-gray-500"
 								/>
 							</div>
-							<div className="h-60 w-full bg-violet-900 mix-blend-darken rounded-lg" />
+							<motion.div
+								initial={{ y: "800px" }}
+								exit={{ y: "800px" }}
+								animate={{ y: 0 }}
+								transition={{ delay: 0.9, duration: 0.4 }}
+								className="h-60 w-full bg-slate-800 rounded-lg"
+							/>
 						</motion.div>
 					</motion.div>
 				</div>
