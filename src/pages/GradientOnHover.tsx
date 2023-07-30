@@ -14,7 +14,7 @@ export default function Demo() {
 	}
 
 	return (
-		<>
+		<div className="flex flex-col gap-5">
 			<motion.div
 				initial={{ y: -200 }}
 				animate={{ y: -10, transition: { duration: 0.6 } }}
@@ -24,9 +24,9 @@ export default function Demo() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="h-screen flex flex-col items-center justify-center">
+			<div className="h-screen flex flex-col items-center sm:justify-center">
 				<div
-					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group rounded-3xl border border-gray-700 bg-gray-900 overflow-hidden"
+					className="relative flex flex-col justify-center w-11/12 sm:w-full max-w-lg min-h-fit group rounded-3xl border border-gray-700 bg-gray-900 overflow-hidden"
 					onMouseMove={handleMouseMove}
 				>
 					<motion.div
@@ -43,7 +43,7 @@ export default function Demo() {
 							transition: { duration: 1.5, when: "afterChildren" },
 							backgroundColor: "transparent",
 						}}
-						className="text-zinc-200 text-7xl font-alfa uppercase p-14 h-full flex flex-col gap-10"
+						className="text-zinc-200 text-4xl md:text-7xl font-alfa uppercase p-6 h-full flex flex-col gap-10"
 					>
 						<motion.h1 initial={{ y: -300 }} animate={{ y: 0 }}>
 							HOVER ME
@@ -119,6 +119,6 @@ export default function Demo() {
 					</motion.div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
