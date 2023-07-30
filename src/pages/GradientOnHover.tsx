@@ -26,13 +26,13 @@ export default function Demo() {
 			</motion.div>
 			<div className="h-full flex flex-col items-center justify-center">
 				<div
-					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group overflow-hidden rounded-3xl"
+					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group rounded-3xl border border-gray-700 bg-gray-900"
 					onMouseMove={handleMouseMove}
 				>
 					<motion.div
-						className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300"
+						className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-3xl"
 						style={{
-							background: useMotionTemplate`radial-gradient(450px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, .15), transparent 80%)`,
+							background: useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, .15), transparent 80%)`,
 						}}
 					/>
 					<motion.div
@@ -43,7 +43,7 @@ export default function Demo() {
 							transition: { duration: 1.5, when: "afterChildren" },
 							backgroundColor: "transparent",
 						}}
-						className="text-zinc-200 text-7xl font-alfa uppercase bg-gray-900 p-14 overflow-hidden h-full flex flex-col gap-10"
+						className="text-zinc-200 text-7xl font-alfa uppercase p-14 h-full flex flex-col gap-10"
 					>
 						<motion.h1 initial={{ y: -300 }} animate={{ y: 0 }}>
 							HOVER ME
