@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import HomeIcon from "../assets/HomeIcon";
 import { Link } from "react-router-dom";
 
 export default function Demo() {
+	const [mousePostion, setMousePosition] = useState({ x: 0, y: 0 });
+
 	function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
 		const { left, top } = currentTarget.getBoundingClientRect();
 
 		const xPosition = clientX - left;
 		const yPosition = clientY - top;
+		setMousePosition({ x: xPosition, y: yPosition });
 	}
 
 	return (
@@ -40,8 +43,7 @@ export default function Demo() {
 						<motion.div
 							className="absolute inset-0"
 							style={{
-								background:
-									"radial-gradient(circle at 0px 0px, rgba(14, 165, 233, 1), transparent 80%)",
+								background: `radial-gradient(circle at ${mousePostion.x}px ${mousePostion.y}px, rgba(14, 165, 233, 1), transparent 80%)`,
 							}}
 						/>
 						<motion.div className="invisible flex flex-col gap-10">
