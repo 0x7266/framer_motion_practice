@@ -6,8 +6,8 @@ import { getRandomHexColor } from "../utils/getRandomHexColor";
 export default function Index() {
 	const links = [
 		{
-			name: "scroll animation",
-			path: "/scrollanimation",
+			name: "scale on scroll",
+			path: "/scaleonscroll",
 			color: getRandomHexColor(),
 		},
 		{
@@ -15,7 +15,11 @@ export default function Index() {
 			path: "/gradientonhover",
 			color: getRandomHexColor(),
 		},
-		{ name: "link 3", path: "/", color: getRandomHexColor() },
+		{
+			name: "change card on drag",
+			path: "/changecardondrag",
+			color: getRandomHexColor(),
+		},
 		{ name: "link 4", path: "/", color: getRandomHexColor() },
 		{ name: "link 5", path: "/", color: getRandomHexColor() },
 		{ name: "link 6", path: "/", color: getRandomHexColor() },

@@ -1,8 +1,9 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import { AnimatePresence } from "framer-motion";
-import ScrollAnimation from "./pages/ScrollAnimation";
+import ScaleOnScroll from "./pages/ScaleOnScroll";
 import GradientOnHover from "./pages/GradientOnHover";
+import ChangeCardOnDrag from "./pages/ChangeCardOnDrag";
 
 function App() {
 	const location = useLocation();
@@ -11,8 +12,9 @@ function App() {
 			<AnimatePresence mode="wait">
 				<Routes key={location.pathname} location={location}>
 					<Route path="/" element={<Index />} />
-					<Route path="/scrollanimation" element={<ScrollAnimation />} />
+					<Route path="/scaleonscroll" element={<ScaleOnScroll />} />
 					<Route path="/gradientonhover" element={<GradientOnHover />} />
+					<Route path="/changecardondrag" element={<ChangeCardOnDrag />} />
 				</Routes>
 			</AnimatePresence>
 		</div>

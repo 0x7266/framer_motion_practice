@@ -26,7 +26,7 @@ const data = [
 	},
 ];
 
-export default function ScrollAnimation() {
+export default function ScaleOnScroll() {
 	return (
 		<div className="flex flex-col gap-5">
 			<motion.div
