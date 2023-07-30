@@ -27,7 +27,7 @@ export default function Index() {
 			animate="animate"
 			exit="exit"
 			transition={{ staggerChildren: 0.1 }}
-			className="w-screen flex flex-col text-zinc-200 text-7xl font-alfa uppercase"
+			className="w-screen flex flex-col text-zinc-200 text-7xl font-alfa uppercase py-5"
 		>
 			{links.map((link, index) => (
 				<Link to={link.path}>

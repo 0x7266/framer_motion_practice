@@ -24,7 +24,7 @@ export default function Demo() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="h-full flex flex-col items-center justify-center">
+			<div className="h-screen flex flex-col items-center justify-center">
 				<div
 					className="relative flex flex-col justify-center h-4/5 max-h-[700px] group rounded-3xl border border-gray-700 bg-gray-900 overflow-hidden"
 					onMouseMove={handleMouseMove}

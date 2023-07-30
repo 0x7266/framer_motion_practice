@@ -7,7 +7,7 @@ import GradientOnHover from "./pages/GradientOnHover";
 function App() {
 	const location = useLocation();
 	return (
-		<div className="min-h-screen h-screen bg-zinc-900 overflow-hidden py-5">
+		<div className="min-h-screen bg-zinc-900 overflow-hidden">
 			<AnimatePresence mode="wait">
 				<Routes key={location.pathname} location={location}>
 					<Route index element={<Index />} />
