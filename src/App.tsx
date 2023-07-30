@@ -10,7 +10,7 @@ function App() {
 		<div className="min-h-screen bg-zinc-900 overflow-hidden">
 			<AnimatePresence mode="wait">
 				<Routes key={location.pathname} location={location}>
-					<Route index element={<Index />} />
+					<Route path="/" element={<Index />} />
 					<Route path="/scrollanimation" element={<ScrollAnimation />} />
 					<Route path="/gradientonhover" element={<GradientOnHover />} />
 				</Routes>
