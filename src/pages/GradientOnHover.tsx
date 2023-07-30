@@ -25,7 +25,14 @@ export default function Demo() {
 				</Link>
 			</motion.div>
 			<div className="h-screen flex flex-col items-center sm:justify-center">
-				<div
+				<motion.div
+					initial={{ scale: 0 }}
+					animate={{ scale: 1 }}
+					exit={{
+						x: [40, -40, 0, 40, -40, 0, 40, -40, 0, 40, -40, 0, 40, -40, 0],
+						scale: [1, 0],
+						transition: { duration: 0.6 },
+					}}
 					className="relative flex flex-col justify-center w-11/12 sm:w-full max-w-lg min-h-fit group rounded-3xl border border-gray-700 bg-gray-900 overflow-hidden"
 					onMouseMove={handleMouseMove}
 				>
@@ -117,7 +124,7 @@ export default function Demo() {
 							/>
 						</motion.div>
 					</motion.div>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);
