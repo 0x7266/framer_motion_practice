@@ -100,5 +100,3 @@ export default function ChangeCardOnDrag() {
 		</div>
 	);
 }
-
-function Card() {}
