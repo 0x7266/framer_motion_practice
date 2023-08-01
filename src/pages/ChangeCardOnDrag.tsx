@@ -43,8 +43,8 @@ export default function ChangeCardOnDrag() {
 			if (info.offset.x <= -100) animateCardSwipe({ x: -175, y: 0 });
 		}
 		if (dragStart.axis === "y") {
-			if (info.offset.y >= 100) animateCardSwipe({ x: 0, y: -175 });
-			if (info.offset.y <= -100) animateCardSwipe({ x: 0, y: 175 });
+			if (info.offset.y >= 100) animateCardSwipe({ x: 0, y: 175 });
+			if (info.offset.y <= -100) animateCardSwipe({ x: 0, y: -175 });
 		}
 	}
 
