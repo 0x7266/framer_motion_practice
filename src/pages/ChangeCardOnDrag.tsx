@@ -57,7 +57,7 @@ export default function ChangeCardOnDrag() {
 			y.set(0);
 			setCards([
 				{
-					text: "just an another card",
+					text: "just another card",
 					background: getRandomHexColor(),
 				},
 				...cards.slice(0, cards.length - 1),
@@ -87,6 +87,7 @@ export default function ChangeCardOnDrag() {
 						</motion.div>
 					) : (
 						<motion.div
+							transition={{ ease: [0.6, 0.05, -0.01, 0.9] }}
 							key={index}
 							className="absolute w-5/6 h-5/6 rounded-3xl p-4 flex flex-col items-center justify-center text-zinc-200 text-3xl font-bold"
 							style={{ backgroundColor: card.background, scale, zIndex: index }}
