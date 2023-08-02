@@ -1,6 +1,9 @@
 import mask from "../assets/mask.svg";
+import useMousePosition from "../hooks/useMousePosition";
 
 export function MaskOnHover() {
+	const { x, y } = useMousePosition();
+
 	return (
 		<div className="w-full flex flex-col items-center text-8xl font-bold">
 			<div
@@ -12,6 +15,8 @@ export function MaskOnHover() {
 					WebkitMaskRepeat: "no-repeat",
 					maskSize: "50px",
 					WebkitMaskSize: "50px",
+					maskPosition: `${x}px ${y}px`,
+					WebkitMaskPosition: `${x}px ${y}px`,
 				}}
 			>
 				<div>MASKMASKMASKMASKMASKMASK</div>
