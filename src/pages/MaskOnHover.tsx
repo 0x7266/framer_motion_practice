@@ -1,8 +1,11 @@
+import { useState } from "react";
 import mask from "../assets/mask.svg";
 import useMousePosition from "../hooks/useMousePosition";
 
 export function MaskOnHover() {
 	const { x, y } = useMousePosition();
+	const [isHovered, setIsHovered] = useState(false);
+	const size = isHovered ? 400 : 50;
 
 	return (
 		<div className="w-full flex flex-col items-center text-8xl font-bold">
@@ -13,13 +16,18 @@ export function MaskOnHover() {
 					WebkitMaskImage: `url(${mask})`,
 					maskRepeat: "no-repeat",
 					WebkitMaskRepeat: "no-repeat",
-					maskSize: "50px",
-					WebkitMaskSize: "50px",
+					maskSize: size,
+					WebkitMaskSize: size,
 					maskPosition: `${x}px ${y}px`,
 					WebkitMaskPosition: `${x}px ${y}px`,
 				}}
 			>
-				<div>MASKMASKMASKMASKMASKMASK</div>
+				<div
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+				>
+					MASKMASKMASKMASKMASKMASK
+				</div>
 			</div>
 			<div className="h-screen grid place-content-center">MaskOnHover</div>
 		</div>
