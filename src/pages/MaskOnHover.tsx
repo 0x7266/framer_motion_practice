@@ -8,8 +8,6 @@ export function MaskOnHover() {
 	const [isHovered, setIsHovered] = useState(false);
 	const size = isHovered ? 400 : 50;
 
-	console.log("render");
-
 	return (
 		<div className="w-full flex flex-col items-center text-8xl font-bold">
 			<motion.div
