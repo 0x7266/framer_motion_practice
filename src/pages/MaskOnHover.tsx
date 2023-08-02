@@ -1,26 +1,28 @@
 import { useState } from "react";
-import mask from "../assets/mask.svg";
+import { motion } from "framer-motion";
 import useMousePosition from "../hooks/useMousePosition";
+import mask from "../assets/mask.svg";
 
 export function MaskOnHover() {
 	const { x, y } = useMousePosition();
 	const [isHovered, setIsHovered] = useState(false);
 	const size = isHovered ? 400 : 50;
 
+	console.log("render");
+
 	return (
 		<div className="w-full flex flex-col items-center text-8xl font-bold">
-			<div
+			<motion.div
 				className="absolute h-screen bg-violet-500 grid place-content-center w-full"
 				style={{
-					maskImage: `url(${mask})`,
 					WebkitMaskImage: `url(${mask})`,
-					maskRepeat: "no-repeat",
 					WebkitMaskRepeat: "no-repeat",
-					maskSize: size,
-					WebkitMaskSize: size,
-					maskPosition: `${x}px ${y}px`,
-					WebkitMaskPosition: `${x}px ${y}px`,
 				}}
+				animate={{
+					WebkitMaskSize: `${size}px`,
+					WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+				}}
+				transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
 			>
 				<div
 					onMouseEnter={() => setIsHovered(true)}
@@ -28,7 +30,7 @@ export function MaskOnHover() {
 				>
 					MASKMASKMASKMASKMASKMASK
 				</div>
-			</div>
+			</motion.div>
 			<div className="h-screen grid place-content-center">MaskOnHover</div>
 		</div>
 	);
