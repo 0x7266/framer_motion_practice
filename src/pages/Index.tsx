@@ -20,7 +20,7 @@ export default function Index() {
 			path: "/changecardondrag",
 			color: getRandomHexColor(),
 		},
-		{ name: "link 4", path: "/", color: getRandomHexColor() },
+		{ name: "mask on hover", path: "/maskonhover", color: getRandomHexColor() },
 		{ name: "link 5", path: "/", color: getRandomHexColor() },
 		{ name: "link 6", path: "/", color: getRandomHexColor() },
 		{ name: "link 7", path: "/", color: getRandomHexColor() },
