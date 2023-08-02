@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import ScaleOnScroll from "./pages/ScaleOnScroll";
 import GradientOnHover from "./pages/GradientOnHover";
 import ChangeCardOnDrag from "./pages/ChangeCardOnDrag";
+import { MaskOnHover } from "./pages/MaskOnHover";
 
 function App() {
 	const location = useLocation();
@@ -15,6 +16,7 @@ function App() {
 					<Route path="/scaleonscroll" element={<ScaleOnScroll />} />
 					<Route path="/gradientonhover" element={<GradientOnHover />} />
 					<Route path="/changecardondrag" element={<ChangeCardOnDrag />} />
+					<Route path="/maskonhover" element={<MaskOnHover />} />
 				</Routes>
 			</AnimatePresence>
 		</div>
