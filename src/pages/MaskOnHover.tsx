@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import HomeIcon from "../assets/HomeIcon";
 import {
 	containerVariants,
+	cursorVariants,
 	textVariants,
 } from "../variants/MaskOnHoverVariants";
 
@@ -26,18 +27,18 @@ export function MaskOnHover() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="w-full flex flex-col items-center text-3xl md:text-8xl font-bold">
+			<div className="w-full flex flex-col items-center text-3xl md:text-8xl font-bold overflow-hidden">
 				<motion.div
+					variants={cursorVariants}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					custom={{ size, x, y }}
 					className="absolute h-screen bg-violet-500 grid place-content-center w-full"
 					style={{
 						WebkitMaskImage: `url(${mask})`,
 						WebkitMaskRepeat: "no-repeat",
 					}}
-					animate={{
-						WebkitMaskSize: `${size}px`,
-						WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-					}}
-					transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
 				>
 					<div
 						onMouseEnter={() => setIsHovered(true)}
