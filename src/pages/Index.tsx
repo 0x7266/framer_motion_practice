@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { textVariants } from "../variants/index";
+import { textVariants } from "../variants/IndexVariants/index";
 import { getRandomHexColor } from "../utils/getRandomHexColor";
 
 export default function Index() {
