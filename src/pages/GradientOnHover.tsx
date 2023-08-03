@@ -14,7 +14,7 @@ export default function Demo() {
 	}
 
 	return (
-		<div className="flex flex-col gap-5">
+		<div className="flex flex-col gap-5 h-screen">
 			<motion.div
 				initial={{ y: -200 }}
 				animate={{ y: -10, transition: { duration: 0.6 } }}
@@ -24,7 +24,7 @@ export default function Demo() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="h-screen flex flex-col items-center sm:justify-center">
+			<div className="h-full flex flex-col items-center justify-center">
 				<motion.div
 					initial={{ scale: 0 }}
 					animate={{ scale: 1 }}
