@@ -50,7 +50,7 @@ export function MaskOnHover() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="w-full flex flex-col items-center md:text-8xl font-bold">
+			<div className="w-full flex flex-col items-center text-3xl md:text-8xl font-bold">
 				<motion.div
 					className="absolute h-screen bg-violet-500 grid place-content-center w-full"
 					style={{
