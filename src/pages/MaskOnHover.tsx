@@ -22,7 +22,7 @@ export function MaskOnHover() {
 					<HomeIcon />
 				</Link>
 			</motion.div>
-			<div className="w-full flex flex-col items-center text-8xl font-bold">
+			<div className="w-full flex flex-col items-center md:text-8xl font-bold">
 				<motion.div
 					className="absolute h-screen bg-violet-500 grid place-content-center w-full"
 					style={{
@@ -38,11 +38,24 @@ export function MaskOnHover() {
 					<div
 						onMouseEnter={() => setIsHovered(true)}
 						onMouseLeave={() => setIsHovered(false)}
+						className="text-zinc-100"
 					>
-						MASKMASKMASKMASKMASKMASK
+						<span>AAAAAAAAAAAAAAAAA</span>
+						<br />
+						<span className="text-violet-300">AAAAAAAAAAAAAAAAA</span>
+						<br />
+						<span>AAAAAAAAAAAAAAAAA</span>
+						<br />
+						<span>AAAAAAAAAAAAAAAAA</span>
 					</div>
 				</motion.div>
-				<div className="h-screen grid place-content-center">MaskOnHover</div>
+				<div className="h-screen grid place-content-center max-w-screen text-zinc-300">
+					<span className="text-green-900">MaskOnHover</span>
+					<span>MaskOnHover</span>
+					<span className="text-green-900">MaskOnHover</span>
+					<span>MaskOnHover</span>
+					<span className="text-green-900">MaskOnHover</span>
+				</div>
 			</div>
 		</>
 	);
