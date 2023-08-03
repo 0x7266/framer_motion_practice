@@ -3,6 +3,7 @@ import { PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
 import { getRandomHexColor } from "../utils/getRandomHexColor";
 import { Link } from "react-router-dom";
 import HomeIcon from "../assets/HomeIcon";
+import { containerVariants } from "../variants/ChangeCardOnDragVariants";
 
 type Point = {
 	x: number;
@@ -80,7 +81,13 @@ export default function ChangeCardOnDrag() {
 				</Link>
 			</motion.div>
 			<div className="h-screen flex flex-col items-center justify-center">
-				<div className="w-72 h-72 p-3 relative border grid place-items-center rounded-3xl overflow-hidden">
+				<motion.div
+					variants={containerVariants}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					className="w-72 h-72 p-3 relative border grid place-items-center rounded-3xl overflow-hidden"
+				>
 					{cards.map((card, index) =>
 						index === cards.length - 1 ? (
 							<motion.div
@@ -118,7 +125,7 @@ export default function ChangeCardOnDrag() {
 							</motion.div>
 						)
 					)}
-				</div>
+				</motion.div>
 			</div>
 		</>
 	);
