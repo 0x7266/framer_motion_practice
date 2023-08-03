@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
 import { getRandomHexColor } from "../utils/getRandomHexColor";
+import { Link } from "react-router-dom";
+import HomeIcon from "../assets/HomeIcon";
 
 type Point = {
 	x: number;
@@ -66,37 +68,58 @@ export default function ChangeCardOnDrag() {
 	}
 
 	return (
-		<div className="h-screen flex flex-col items-center justify-center">
-			<div className="w-72 h-72 p-3 relative border grid place-items-center rounded-3xl overflow-hidden">
-				{cards.map((card, index) =>
-					index === cards.length - 1 ? (
-						<motion.div
-							key={index}
-							drag
-							dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-							dragDirectionLock
-							onDirectionLock={onDirectionLock}
-							onDragEnd={onDragEnd}
-							whileTap={{ scale: 0.85 }}
-							animate={dragStart.animation}
-							transition={{ ease: [0.6, 0.05, -0.01, 0.9] }}
-							className="absolute w-5/6 h-5/6 rounded-3xl p-4 flex flex-col items-center justify-center text-zinc-200 text-3xl font-bold"
-							style={{ backgroundColor: card.background, x, y, zIndex: index }}
-						>
-							{card.text}
-						</motion.div>
-					) : (
-						<motion.div
-							transition={{ ease: [0.6, 0.05, -0.01, 0.9] }}
-							key={index}
-							className="absolute w-5/6 h-5/6 rounded-3xl p-4 flex flex-col items-center justify-center text-zinc-200 text-3xl font-bold"
-							style={{ backgroundColor: card.background, scale, zIndex: index }}
-						>
-							{card.text}
-						</motion.div>
-					)
-				)}
+		<>
+			<motion.div
+				initial={{ y: -200 }}
+				animate={{ y: -10, transition: { duration: 0.6 } }}
+				exit={{ y: -200 }}
+				className="absolute z-40"
+			>
+				<Link to="/">
+					<HomeIcon />
+				</Link>
+			</motion.div>
+			<div className="h-screen flex flex-col items-center justify-center">
+				<div className="w-72 h-72 p-3 relative border grid place-items-center rounded-3xl overflow-hidden">
+					{cards.map((card, index) =>
+						index === cards.length - 1 ? (
+							<motion.div
+								key={index}
+								drag
+								dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+								dragDirectionLock
+								onDirectionLock={onDirectionLock}
+								onDragEnd={onDragEnd}
+								whileTap={{ scale: 0.85 }}
+								animate={dragStart.animation}
+								transition={{ ease: [0.6, 0.05, -0.01, 0.9] }}
+								className="absolute w-5/6 h-5/6 rounded-3xl p-4 flex flex-col items-center justify-center text-zinc-200 text-3xl font-bold"
+								style={{
+									backgroundColor: card.background,
+									x,
+									y,
+									zIndex: index,
+								}}
+							>
+								{card.text}
+							</motion.div>
+						) : (
+							<motion.div
+								transition={{ ease: [0.6, 0.05, -0.01, 0.9] }}
+								key={index}
+								className="absolute w-5/6 h-5/6 rounded-3xl p-4 flex flex-col items-center justify-center text-zinc-200 text-3xl font-bold"
+								style={{
+									backgroundColor: card.background,
+									scale,
+									zIndex: index,
+								}}
+							>
+								{card.text}
+							</motion.div>
+						)
+					)}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }

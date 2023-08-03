@@ -4,39 +4,15 @@ import useMousePosition from "../hooks/useMousePosition";
 import mask from "../assets/mask.svg";
 import { Link } from "react-router-dom";
 import HomeIcon from "../assets/HomeIcon";
+import {
+	containerVariants,
+	textVariants,
+} from "../variants/MaskOnHoverVariants";
 
 export function MaskOnHover() {
 	const { x, y } = useMousePosition();
 	const [isHovered, setIsHovered] = useState(false);
 	const size = isHovered ? 400 : 50;
-
-	const parent: Variants = {
-		animate: {
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-		exit: {
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
-
-	const child: Variants = {
-		initial: (index: number) => ({
-			x: index % 2 === 0 ? 600 : -600,
-			opacity: 0,
-		}),
-		animate: {
-			x: 0,
-			opacity: 1,
-		},
-		exit: (index: number) => ({
-			x: index % 2 === 0 ? -600 : 600,
-			opacity: 0,
-		}),
-	};
 
 	return (
 		<>
@@ -78,28 +54,40 @@ export function MaskOnHover() {
 					</div>
 				</motion.div>
 				<motion.div
-					variants={parent}
+					variants={containerVariants}
 					initial="initial"
 					animate="animate"
 					exit="exit"
 					className="h-screen grid place-content-center max-w-screen text-zinc-300"
 				>
-					<motion.div variants={child} custom={0}>
+					<motion.div variants={textVariants} custom={0}>
 						MaskOnHover
 					</motion.div>
-					<motion.div variants={child} className="text-green-900" custom={1}>
+					<motion.div
+						variants={textVariants}
+						className="text-green-900"
+						custom={1}
+					>
 						MaskOnHover
 					</motion.div>
-					<motion.div variants={child} custom={2}>
+					<motion.div variants={textVariants} custom={2}>
 						MaskOnHover
 					</motion.div>
-					<motion.div variants={child} className="text-green-900" custom={3}>
+					<motion.div
+						variants={textVariants}
+						className="text-green-900"
+						custom={3}
+					>
 						MaskOnHover
 					</motion.div>
-					<motion.div variants={child} custom={4}>
+					<motion.div variants={textVariants} custom={4}>
 						MaskOnHover
 					</motion.div>
-					<motion.div variants={child} className="text-green-900" custom={5}>
+					<motion.div
+						variants={textVariants}
+						className="text-green-900"
+						custom={5}
+					>
 						MaskOnHover
 					</motion.div>
 				</motion.div>
