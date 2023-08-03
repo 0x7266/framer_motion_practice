@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useMousePosition from "../hooks/useMousePosition";
 import mask from "../assets/mask.svg";
 import { Link } from "react-router-dom";
