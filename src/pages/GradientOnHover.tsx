@@ -50,15 +50,13 @@ export default function Demo() {
 							transition: { duration: 1.5, when: "afterChildren" },
 							backgroundColor: "transparent",
 						}}
+						transition={{ delayChildren: 4 }}
 						className="text-zinc-200 text-4xl md:text-7xl font-alfa uppercase p-6 h-full flex flex-col gap-10"
 					>
 						<motion.h1 initial={{ y: -300 }} animate={{ y: 0 }}>
 							HOVER ME
 						</motion.h1>
 						<motion.div
-							initial="initial"
-							whileInView="inView"
-							transition={{ staggerChildren: 0.2 }}
 							viewport={{ amount: 0.5, once: true }}
 							className="w-full flex flex-col gap-3"
 						>
