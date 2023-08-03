@@ -36,7 +36,7 @@ export default function ChangeCardOnDrag() {
 		setDragStart((prev) => ({ ...prev, axis }));
 	}
 
-	function onDragEnd(e: DragEvent, info: PanInfo) {
+	function onDragEnd(_e: DragEvent, info: PanInfo) {
 		// console.log({ x: e.x, y: e.y });
 		if (dragStart.axis === "x") {
 			if (info.offset.x >= 100) animateCardSwipe({ x: 175, y: 0 });
