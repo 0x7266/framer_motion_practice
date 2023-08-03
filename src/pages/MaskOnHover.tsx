@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import useMousePosition from "../hooks/useMousePosition";
 import mask from "../assets/mask.svg";
 import { Link } from "react-router-dom";
@@ -9,6 +9,34 @@ export function MaskOnHover() {
 	const { x, y } = useMousePosition();
 	const [isHovered, setIsHovered] = useState(false);
 	const size = isHovered ? 400 : 50;
+
+	const parent: Variants = {
+		animate: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+		exit: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const child: Variants = {
+		initial: (index: number) => ({
+			x: index % 2 === 0 ? 600 : -600,
+			opacity: 0,
+		}),
+		animate: {
+			x: 0,
+			opacity: 1,
+		},
+		exit: (index: number) => ({
+			x: index % 2 === 0 ? -600 : 600,
+			opacity: 0,
+		}),
+	};
 
 	return (
 		<>
@@ -49,13 +77,32 @@ export function MaskOnHover() {
 						<span>AAAAAAAAAAAAAAAAA</span>
 					</div>
 				</motion.div>
-				<div className="h-screen grid place-content-center max-w-screen text-zinc-300">
-					<span className="text-green-900">MaskOnHover</span>
-					<span>MaskOnHover</span>
-					<span className="text-green-900">MaskOnHover</span>
-					<span>MaskOnHover</span>
-					<span className="text-green-900">MaskOnHover</span>
-				</div>
+				<motion.div
+					variants={parent}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					className="h-screen grid place-content-center max-w-screen text-zinc-300"
+				>
+					<motion.div variants={child} custom={0}>
+						MaskOnHover
+					</motion.div>
+					<motion.div variants={child} className="text-green-900" custom={1}>
+						MaskOnHover
+					</motion.div>
+					<motion.div variants={child} custom={2}>
+						MaskOnHover
+					</motion.div>
+					<motion.div variants={child} className="text-green-900" custom={3}>
+						MaskOnHover
+					</motion.div>
+					<motion.div variants={child} custom={4}>
+						MaskOnHover
+					</motion.div>
+					<motion.div variants={child} className="text-green-900" custom={5}>
+						MaskOnHover
+					</motion.div>
+				</motion.div>
 			</div>
 		</>
 	);
