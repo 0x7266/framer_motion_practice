@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { imageVariants, textVariants, titleVariants } from "../variants/posts";
+import {
+	imageVariants,
+	textVariants,
+	titleVariants,
+} from "../variants/ScaleOnScrollVariants";
 
 export function Post({ post }: { post: { title: string; img: string } }) {
 	const ref = useRef(null);
