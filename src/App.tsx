@@ -5,6 +5,7 @@ import ScaleOnScroll from "./pages/ScaleOnScroll";
 import GradientOnHover from "./pages/GradientOnHover";
 import ChangeCardOnDrag from "./pages/ChangeCardOnDrag";
 import { MaskOnHover } from "./pages/MaskOnHover";
+import SlideToConfirm from "./pages/SlideToConfirm";
 
 function App() {
 	const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/gradientonhover" element={<GradientOnHover />} />
 					<Route path="/changecardondrag" element={<ChangeCardOnDrag />} />
 					<Route path="/maskonhover" element={<MaskOnHover />} />
+					<Route path="/slidetoconfirm" element={<SlideToConfirm />} />
 				</Routes>
 			</AnimatePresence>
 		</div>
