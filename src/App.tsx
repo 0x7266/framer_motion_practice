@@ -6,6 +6,7 @@ import GradientOnHover from "./pages/GradientOnHover";
 import ChangeCardOnDrag from "./pages/ChangeCardOnDrag";
 import { MaskOnHover } from "./pages/MaskOnHover";
 import SlideToConfirm from "./pages/SlideToConfirm";
+import RandomAnimationOnScroll from "./pages/RandomAnimationsOnScroll";
 
 function App() {
 	const location = useLocation();
@@ -21,7 +22,7 @@ function App() {
 					<Route path="/slidetoconfirm" element={<SlideToConfirm />} />
 					<Route
 						path="/randomanimationsonscroll"
-						element={<SlideToConfirm />}
+						element={<RandomAnimationOnScroll />}
 					/>
 				</Routes>
 			</AnimatePresence>
