@@ -24,9 +24,9 @@ const images = [
 ];
 
 const imgVariants = {
-	initial: { opacity: 0, x: -400 },
+	initial: (direction: number) => ({ opacity: 0, x: -400 * direction }),
 	animate: { opacity: 1, x: 0 },
-	exit: { opacity: 0, x: 400 },
+	exit: (direction: number) => ({ opacity: 0, x: 400 * direction }),
 };
 
 export default function RandomAnimationOnScroll() {
@@ -42,12 +42,15 @@ export default function RandomAnimationOnScroll() {
 	const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 	const borderRadius = useTransform(scrollYProgress, [1, 0], [0, 10]);
-
+	const i = useTransform(scrollYProgress, [0, 1], [0, images.length]);
 	const x = useMotionValue(0);
 
 	useMotionValueEvent(scrollYProgress, "change", (latest) => {
-		x.set(x.get() + 2);
-		setIndex(Math.floor(latest * 10));
+		setDirection((_prev) =>
+			scrollYProgress.getPrevious() - latest < 0 ? -1 : 1
+		);
+		setIndex(Math.round(latest * 10));
+		console.log(index);
 	});
 
 	return (
@@ -62,9 +65,10 @@ export default function RandomAnimationOnScroll() {
 			/>
 
 			<div className="fixed top-96">
-				<div className="relative flex justify-center items-center w-96 h-96 border-4 rounded-2xl overflow-hidden">
-					<AnimatePresence initial={false}>
+				<div className="relative flex justify-center items-center w-[350px] h-[350px] border-4 rounded-2xl overflow-hidden">
+					<AnimatePresence initial={false} key={direction}>
 						<motion.img
+							custom={direction}
 							variants={imgVariants}
 							initial="initial"
 							animate="animate"
