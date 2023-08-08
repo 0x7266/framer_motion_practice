@@ -19,6 +19,10 @@ function App() {
 					<Route path="/changecardondrag" element={<ChangeCardOnDrag />} />
 					<Route path="/maskonhover" element={<MaskOnHover />} />
 					<Route path="/slidetoconfirm" element={<SlideToConfirm />} />
+					<Route
+						path="/randomanimationsonscroll"
+						element={<SlideToConfirm />}
+					/>
 				</Routes>
 			</AnimatePresence>
 		</div>
