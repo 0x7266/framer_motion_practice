@@ -50,7 +50,6 @@ export default function RandomAnimationOnScroll() {
 			scrollYProgress.getPrevious() - latest < 0 ? -1 : 1
 		);
 		setIndex(Math.round(latest * 10));
-		console.log(index);
 	});
 
 	return (
