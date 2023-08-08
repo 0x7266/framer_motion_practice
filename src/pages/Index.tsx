@@ -21,7 +21,11 @@ export default function Index() {
 			color: getRandomHexColor(),
 		},
 		{ name: "mask on hover", path: "/maskonhover", color: getRandomHexColor() },
-		{ name: "link 5", path: "/", color: getRandomHexColor() },
+		{
+			name: "random animations on scroll",
+			path: "/random animations on scroll",
+			color: getRandomHexColor(),
+		},
 		{ name: "link 6", path: "/", color: getRandomHexColor() },
 		{ name: "link 7", path: "/", color: getRandomHexColor() },
 	];
