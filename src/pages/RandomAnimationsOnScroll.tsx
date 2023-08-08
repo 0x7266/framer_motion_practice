@@ -1,6 +1,5 @@
 import {
 	motion,
-	useMotionValue,
 	useMotionValueEvent,
 	useScroll,
 	useSpring,
@@ -50,12 +49,15 @@ export default function RandomAnimationOnScroll() {
 			/>
 
 			<div className="fixed top-96">
-				<div className="relative flex justify-center items-center w-96 h-96 border-4 p-4 rounded-3xl">
-					<img
+				<div className="relative flex justify-center items-center w-96 h-96 border-4 rounded-2xl overflow-hidden">
+					<motion.img
+						initial={{ x: -300 }}
+						animate={{ x: 0 }}
+						transition={{ duration: 0.3 }}
 						src={images[index]}
 						key={images[index]}
 						alt=""
-						className="absolute object-cover h-80 w-80 rounded-xl"
+						className="absolute object-cover h-[350px] w-[350px] rounded-xl"
 					/>
 				</div>
 			</div>
