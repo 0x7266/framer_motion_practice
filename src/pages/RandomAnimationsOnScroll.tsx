@@ -1,5 +1,7 @@
 import {
+	AnimatePresence,
 	motion,
+	useMotionValue,
 	useMotionValueEvent,
 	useScroll,
 	useSpring,
@@ -21,9 +23,17 @@ const images = [
 	"https://images.unsplash.com/photo-1658730335794-c5edd544ccbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 ];
 
+const imgVariants = {
+	initial: { opacity: 0, x: -400 },
+	animate: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: 400 },
+};
+
 export default function RandomAnimationOnScroll() {
 	const [index, setIndex] = useState(0);
+	const [direction, setDirection] = useState(1);
 	const { scrollYProgress } = useScroll();
+
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 80,
 		damping: 60,
@@ -33,7 +43,10 @@ export default function RandomAnimationOnScroll() {
 	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 	const borderRadius = useTransform(scrollYProgress, [1, 0], [0, 10]);
 
+	const x = useMotionValue(0);
+
 	useMotionValueEvent(scrollYProgress, "change", (latest) => {
+		x.set(x.get() + 2);
 		setIndex(Math.floor(latest * 10));
 	});
 
@@ -45,20 +58,23 @@ export default function RandomAnimationOnScroll() {
 			/>
 			<motion.div
 				className="fixed top-20 w-60 h-60 bg-rose-300"
-				style={{ rotate, scale, borderRadius }}
+				style={{ rotate, scale, borderRadius, x }}
 			/>
 
 			<div className="fixed top-96">
 				<div className="relative flex justify-center items-center w-96 h-96 border-4 rounded-2xl overflow-hidden">
-					<motion.img
-						initial={{ x: -300 }}
-						animate={{ x: 0 }}
-						transition={{ duration: 0.3 }}
-						src={images[index]}
-						key={images[index]}
-						alt=""
-						className="absolute object-cover h-[350px] w-[350px] rounded-xl"
-					/>
+					<AnimatePresence initial={false}>
+						<motion.img
+							variants={imgVariants}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={{ duration: 0.3 }}
+							src={images[index]}
+							key={images[index]}
+							className="absolute object-cover h-[350px] w-[350px] rounded-xl"
+						/>
+					</AnimatePresence>
 				</div>
 			</div>
 		</div>
