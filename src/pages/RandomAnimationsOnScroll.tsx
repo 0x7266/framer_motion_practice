@@ -42,8 +42,7 @@ export default function RandomAnimationOnScroll() {
 	const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 	const borderRadius = useTransform(scrollYProgress, [1, 0], [0, 10]);
-	const i = useTransform(scrollYProgress, [0, 1], [0, images.length]);
-	const x = useMotionValue(0);
+	const x = useTransform(scrollYProgress, [1, 0], [0, 300]);
 
 	useMotionValueEvent(scrollYProgress, "change", (latest) => {
 		setDirection((_prev) =>
