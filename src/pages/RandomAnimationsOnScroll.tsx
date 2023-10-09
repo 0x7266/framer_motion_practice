@@ -1,13 +1,14 @@
 import {
 	AnimatePresence,
 	motion,
-	useMotionValue,
 	useMotionValueEvent,
 	useScroll,
 	useSpring,
 	useTransform,
 } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import HomeIcon from "../assets/HomeIcon";
 
 const images = [
 	"https://images.unsplash.com/photo-1658171757201-41b9aa2b3651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -52,33 +53,45 @@ export default function RandomAnimationOnScroll() {
 	});
 
 	return (
-		<div className="min-h-[300dvh] bg-slate-900 flex flex-col items-center">
+		<>
 			<motion.div
-				className="fixed top-0 left-0 right-0 h-3 bg-rose-500 self-start z-10"
-				style={{ scaleX, transformOrigin: "0%" }}
-			/>
-			<motion.div
-				className="fixed top-20 w-60 h-60 bg-rose-300"
-				style={{ rotate, scale, borderRadius, x }}
-			/>
+				initial={{ y: -200 }}
+				animate={{ y: -10, transition: { duration: 0.6 } }}
+				exit={{ y: -200 }}
+				className="absolute z-40"
+			>
+				<Link to="/">
+					<HomeIcon />
+				</Link>
+			</motion.div>
+			<div className="min-h-[300dvh] bg-slate-900 flex flex-col items-center">
+				<motion.div
+					className="fixed top-0 left-0 right-0 h-3 bg-rose-500 self-start z-10"
+					style={{ scaleX, transformOrigin: "0%" }}
+				/>
+				<motion.div
+					className="fixed top-20 w-60 h-60 bg-rose-300"
+					style={{ rotate, scale, borderRadius, x }}
+				/>
 
-			<div className="fixed top-96">
-				<div className="relative flex justify-center items-center w-[350px] h-[350px] border-4 rounded-2xl overflow-hidden">
-					<AnimatePresence initial={false} key={direction}>
-						<motion.img
-							custom={direction}
-							variants={imgVariants}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-							transition={{ duration: 0.3 }}
-							src={images[index]}
-							key={images[index]}
-							className="absolute object-cover h-[350px] w-[350px] rounded-xl"
-						/>
-					</AnimatePresence>
+				<div className="fixed top-96">
+					<div className="relative flex justify-center items-center w-[350px] h-[350px] border-4 rounded-2xl overflow-hidden">
+						<AnimatePresence initial={false} key={direction}>
+							<motion.img
+								custom={direction}
+								variants={imgVariants}
+								initial="initial"
+								animate="animate"
+								exit="exit"
+								transition={{ duration: 0.3 }}
+								src={images[index]}
+								key={images[index]}
+								className="absolute object-cover h-[350px] w-[350px] rounded-xl"
+							/>
+						</AnimatePresence>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
