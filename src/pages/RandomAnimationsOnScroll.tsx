@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "../assets/HomeIcon";
+import { containerVariants } from "../variants/RandomAnimationsOnScroll";
 
 const images = [
 	"https://images.unsplash.com/photo-1658171757201-41b9aa2b3651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -74,7 +75,12 @@ export default function RandomAnimationOnScroll() {
 					style={{ rotate, scale, borderRadius, x }}
 				/>
 
-				<div className="fixed top-96">
+				<motion.div
+					variants={containerVariants}
+					initial="initial"
+					animate="animate"
+					className="fixed top-96"
+				>
 					<div className="relative flex justify-center items-center w-[350px] h-[350px] border-4 rounded-2xl overflow-hidden">
 						<AnimatePresence initial={false} key={direction}>
 							<motion.img
@@ -90,7 +96,7 @@ export default function RandomAnimationOnScroll() {
 							/>
 						</AnimatePresence>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</>
 	);
